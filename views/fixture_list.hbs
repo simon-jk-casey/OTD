@@ -1,8 +1,9 @@
 <div class="">
-  <h3>OPPOSITION: {{opposition}}</h3>
-  <h3>GROUND: {{ground}}</h3>
-</div>
-
-<div class="">
-  <img src="" alt="" />
+  <ul>
+    {{#each fixture}}
+    <li>
+      <h3>OPPOSITION: {{opposition}} GROUND: {{ground}}</h3>
+    </li>
+    {{/each}}
+  </ul>
 </div>
