@@ -1,0 +1,25 @@
+<form class="" action="index.html" method="post">
+
+  <select class="" name="Fixture">
+    {{#each fixture}}
+    <option>{{fixture.oppostion}} {{fixture.date}} {{fixture.ground}}<option>
+  </select>
+
+  <select class="" name="Result">
+    <option>WIN</option>
+    <option>LOSS</option>
+    <option>DRAW</option>
+    <option>ABANDONED</option>
+  </select>
+
+  <input type="number" name="margin" value="">
+
+  <select class="" name="Margin Type">
+    <option>RUNS</option>
+    <option>WICKETS</option>
+  </select>
+
+  <input type="submit" value="submit">
+  <input type="reset">
+
+</form>
