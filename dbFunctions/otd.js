@@ -5,6 +5,8 @@ var knex = Knex(knexConfig)
 module.exports = {
   getSquad,
   getPlayer,
+  getFixtures,
+  getFixture
 }
 
 //LIST PLAYERS
@@ -17,3 +19,13 @@ function getPlayer(id) {
      .select()
      .where('playerId', '=', `${id}`)
 }
+
+function getFixtures() {
+  return knex('fixtures')
+}
+
+function getFixture(id) {
+  return knex('fixtures')
+      .select()
+      .where('id', '=', `${id}`)
+} //Do a join here to get ground image to go with fixture

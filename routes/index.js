@@ -25,7 +25,34 @@ router.get('/squad/:id', function(req, res, next){
   otdDb.getPlayer(req.params.id)
     .then(function(data){
       console.log(data)
-      res.render('player_page', data)
+      res.render('player_page', data[0])
+    })
+    .catch(function(err){
+      res.status(500)
+    })
+})
+
+router.get('/fixtures', function(req, res, next){
+  res.status(200)
+  otdDb.getFixtures()
+    .then(function(data){
+      console.log(data)
+      res.render('fixture_list', {data})
+    })
+    .catch(function(err){
+      res.status(500)
+    })
+})
+
+router.get('/fixtures/:id', function(req, res, next){
+  res.status(200)
+  otdDb.getFixture(req.params.id)
+    .then(function(data){
+      console.log(data)
+      res.render('fixture', data[0])
+    })
+    .catch(function(err){
+      res.status(500)
     })
 })
 
