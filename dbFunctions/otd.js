@@ -6,7 +6,8 @@ module.exports = {
   getSquad,
   getPlayer,
   getFixtures,
-  getFixture
+  getFixture,
+  getTotalRuns
 }
 
 //LIST PLAYERS
@@ -16,8 +17,8 @@ function getSquad() {
 
 function getPlayer(id) {
   return knex('squad')
-     .select()
-     .where('playerId', '=', `${id}`)
+    .select()
+    .where('playerId', '=', `${id}`)
 }
 
 function getFixtures() {
@@ -26,6 +27,12 @@ function getFixtures() {
 
 function getFixture(id) {
   return knex('fixtures')
-      .select()
-      .where('id', '=', `${id}`)
+    .select()
+    .where('id', '=', `${id}`)
 } //Do a join here to get ground image to go with fixture
+
+function getTotalRuns(id) {
+  return knex('matchDB_Bat')
+    .sum('runs as totalRuns')
+    .where('playerId', '=', `${id}`)
+}

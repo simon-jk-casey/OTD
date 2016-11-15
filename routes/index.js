@@ -23,8 +23,9 @@ router.get('/squad', function(req, res, next){
 router.get('/squad/:id', function(req, res, next){
   res.status(200)
   otdDb.getPlayer(req.params.id)
+  otdDb.getTotalRuns(req.params.id)
     .then(function(data){
-      console.log(data)
+      console.log("player", data)
       res.render('player_page', data[0])
     })
     .catch(function(err){
