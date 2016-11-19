@@ -7,7 +7,8 @@ module.exports = {
   getPlayer,
   getFixtures,
   getFixture,
-  getTotalRuns
+  getBattingData,
+  getBowlingData
 }
 
 //LIST PLAYERS
@@ -31,8 +32,21 @@ function getFixture(id) {
     .where('id', '=', `${id}`)
 } //Do a join here to get ground image to go with fixture
 
-function getTotalRuns(id) {
+function getBattingData(id) {
   return knex('matchDB_Bat')
-    .sum('runs as totalRuns')
-    .where('playerId', '=', `${id}`)
+    .sum('batruns')
+    .sum('fours')
+    .sum('sixes')
+    .sum('notOut')
+    .where('batPlayerId', '=', `${id}`)
+}
+function getBowlingData(id) {
+  return knex ('matchDB_Bowl')
+    .sum('overs')
+    .sum('maidens')
+    .sum('bowlRuns')
+    .sum('wickets')
+    .sum('wides')
+    .sum('noBalls')
+    .where('bowlPlayerId', '=', `${id}`)
 }
