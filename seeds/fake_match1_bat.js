@@ -24,6 +24,7 @@ exports.seed = function(knex, Promise) {
         knex('matchDB_Bat').insert({id: 17, batPlayerId: 2, batRuns: 88, fours: 5, sixes: 7, notOut: false, dnb: false, matchId: 4}),
         knex('matchDB_Bat').insert({id: 18, batPlayerId: 3, batRuns: 16, fours: 4, sixes: 0, notOut: false, dnb: false, matchId: 4}),
         knex('matchDB_Bat').insert({id: 19, batPlayerId: 4, batRuns: 46, fours: 5, sixes: 2, notOut: false, dnb: false, matchId: 4}),
+        knex('matchDB_Bat').insert({id: 20, batPlayerId: 5, batRuns: 0, fours: 0, sixes: 0, notOut: false, dnb: true, matchId: 4}),
       ]);
     });
 };

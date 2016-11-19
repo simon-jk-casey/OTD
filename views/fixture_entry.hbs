@@ -1,18 +1,19 @@
 <form class="" action="index.html" method="post">
 
   <select class="" name="Opposition">
-    {{#each opposition}}
-    <option>{{team}}</option>
-    {{/each}}
+
+    <option>{{#each opposition}}{{name}}{{/each}}</option>
+
   </select>
 
   <select class="" name="Ground">
     {{#each Ground}}
-    <option>{{groundName}}</option>
+    <option value="{{groundName}}">{{groundName}}</option>
     {{/each}}
   </select>
 
   <input type="text" name="pitch" value="">
+  <input type="text" name="date" value="date">
 
   <input type="submit" value="submit">
   <input type="reset">

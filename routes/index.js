@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'OTD' });
 });
 
+/* GET squad list */
 router.get('/squad', function(req, res, next){
   res.status(200)
   otdDb.getSquad()
@@ -20,8 +21,9 @@ router.get('/squad', function(req, res, next){
     })
 })
 
+/* GET player page by ID (by clicking link in squad list)*/
 router.get('/squad/:id', function(req, res, next){
-  otdDb.getBowlingData(req.params.id)
+  otdDb.getPlayerData(req.params.id)
     .then(function(data){
       console.log("stats", data)
       res.render('player_page', data[0])
@@ -31,6 +33,7 @@ router.get('/squad/:id', function(req, res, next){
     })
 })
 
+/* GET fixture list */
 router.get('/fixtures', function(req, res, next){
   res.status(200)
   otdDb.getFixtures()
@@ -43,6 +46,7 @@ router.get('/fixtures', function(req, res, next){
     })
 })
 
+/* GET fixture by ID (by clicking link in fixture list)*/
 router.get('/fixtures/:id', function(req, res, next){
   res.status(200)
   otdDb.getFixture(req.params.id)
@@ -55,14 +59,20 @@ router.get('/fixtures/:id', function(req, res, next){
     })
 })
 
+router.get('/addFixture', function (req, res, next){
+  otdDb.getOpposition()
+  .then(function(data){
+    console.log(data)
+    res.render('fixture_entry', {data})
+  })
+  .catch(function(err){
+    res.status(500)
+  })
+})
 
-/* GET squad list */
 
-/* GET player page by ID (by clicking link in squad list)*/
 
-/* GET fixture list */
 
-/* GET fixture by ID (by clicking link in fixture list)*/
 
 /* GET PAGE // POST FORM
 RESULT ENTRY, forced path >> bat input >> bowl input >> field input >> resukt input //OPTION TO UPLOAD IMAGE OF SCORESHEET? */
