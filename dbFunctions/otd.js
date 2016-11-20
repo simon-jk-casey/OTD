@@ -11,7 +11,9 @@ module.exports = {
   getBowlingData,
   getFieldingData,
   getPlayerData,
-  getOpposition
+  getFixtureEntryData,
+  addPlayer,
+  inputBatting
 }
 
 //LIST PLAYERS
@@ -32,7 +34,8 @@ function getFixtures() {
 function getFixture(id) {
   return knex('fixtures')
     .select()
-    .where('id', '=', `${id}`)
+    .innerJoin('grounds', 'fixtures.ground', '=', 'grounds.groundName')
+    .where('fixtures.id', '=', `${id}`)
 } //Do a join here to get ground image to go with fixture
 
 function getBattingData(id) {
@@ -94,6 +97,20 @@ return knex ('squad')
     })
     .where('playerId', '=', `${id}`)
 }
-function getOpposition() {
+
+
+
+function getFixtureEntryData () {
   return knex('opposition')
+    .innerJoin('grounds')
+    .distinct('opposition.name')
+    .distinct('grounds.groundName')
+}
+
+function addPlayer(player) {
+  return knex('squad').insert(player)
+}
+
+function inputBatting(card) {
+  console.log(card)
 }

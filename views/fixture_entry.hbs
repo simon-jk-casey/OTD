@@ -1,21 +1,36 @@
+<h2>ADD FIXTURE</h2>
+
 <form class="" action="index.html" method="post">
 
-  <select class="" name="Opposition">
-    {{#each opposition}}
+  <div class="">
+    <label for="opposition">Opposition:</label>
+    <select class="" name="opposition">
+      {{#each data}}
       <option value="{{name}}" {{selected this ../selectedState}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+<div class="">
+  <label for="ground">Ground:</label>
+  <select class="" name="ground">
+    {{#each data}}
+    <option value="{{groundName}}" {{selected this ../selectedState}}>{{groundName}}</option>
     {{/each}}
   </select>
+  <label for="pitch">Pitch Number: </label>
+  <input type="text" name="pitch" value=""> <br>
+</div>
 
-  <select class="" name="Ground">
-    {{#each Ground}}
-    <option value="{{groundName}}">{{groundName}}</option>
-    {{/each}}
-  </select>
+  <div class="">
+    <label for="date">Date: </label>
+    <input type="text" name="date" value="">
+  </div>
+  <!--some form of calendar in here?-->
 
-  <input type="text" name="pitch" value="">
-  <input type="text" name="date" value="date">
-
-  <input type="submit" value="submit">
-  <input type="reset">
+  <div class="">
+    <input type="submit" value="Submit">
+    <input type="reset">
+  </div>
 
 </form>

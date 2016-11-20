@@ -60,10 +60,10 @@ router.get('/fixtures/:id', function(req, res, next){
 })
 
 router.get('/addFixture', function (req, res, next){
-  otdDb.getOpposition()
-  .then(function(opposition){
-    console.log(opposition)
-    res.render('fixture_entry', {opposition})
+  otdDb.getFixtureEntryData()
+  .then(function(data){
+    console.log(data)
+    res.render('fixture_entry', {data})
   })
   .catch(function(err){
     res.status(500)
@@ -81,6 +81,60 @@ router.get('/addResult', function (req, res, next) {
     res.status(500)
   })
 })
+
+router.get('/inputBatting', function (req, res, next){
+  otdDb.getSquad()
+  .then(function(player){
+    console.log(player)
+    res.render('bat_input', {player})
+  })
+  .catch(function(err){
+    console.log(err)
+    res.status(500)
+  })
+})
+
+router.post('/inputBatting', function (req, res, next){
+  var card = req.body
+  otdDb.inputBatting(card)
+  .then(function(){
+    res.redirect('/')
+  })
+})
+
+router.get('/inputBowling', function(req, res, next){
+  otdDb.getSquad()
+  .then(function(player){
+    res.render('bowl_input', {player})
+  })
+  .catch(function(err){
+    console.log(err)
+  })
+})
+
+router.get('/inputFielding', function(req, res, next){
+  otdDb.getSquad()
+  .then(function(player){
+    res.render('field_input', {player})
+  })
+  .catch(function(err){
+    console.log(err)
+  })
+})
+
+router.get('/addPlayer', function (req, res, next){
+  res.render('createPlayer')
+})
+
+router.post('/addPlayer', function (req, res, next){
+  var player = req.body
+  console.log(player.firstName);
+  otdDb.addPlayer(player)
+  .then(function(){
+    res.redirect('/squad')
+  })
+})
+
 
 
 
