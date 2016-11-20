@@ -1,8 +1,9 @@
 <form class="" action="index.html" method="post">
 
   <select class="" name="Fixture">
-    {{#each fixture}}
-    <option>{{fixture.oppostion}} {{fixture.date}} {{fixture.ground}}<option>
+    {{#each fixtures}}
+    <option value="{{id}}" {{selected this ../selectedState}}>{{date}} {{opposition}} {{ground}}<option>
+    {{/each}}
   </select>
 
   <select class="" name="Result">

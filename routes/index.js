@@ -61,15 +61,26 @@ router.get('/fixtures/:id', function(req, res, next){
 
 router.get('/addFixture', function (req, res, next){
   otdDb.getOpposition()
-  .then(function(data){
-    console.log(data)
-    res.render('fixture_entry', {data})
+  .then(function(opposition){
+    console.log(opposition)
+    res.render('fixture_entry', {opposition})
   })
   .catch(function(err){
     res.status(500)
   })
 })
 
+router.get('/addResult', function (req, res, next) {
+  otdDb.getFixtures()
+  .then(function(fixtures){
+    console.log(fixtures)
+    res.render('result_input', {fixtures})
+  })
+  .catch(function(err){
+    console.log(err);
+    res.status(500)
+  })
+})
 
 
 
