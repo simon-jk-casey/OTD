@@ -95,8 +95,7 @@ router.get('/inputBatting', function (req, res, next){
 })
 
 router.post('/inputBatting', function (req, res, next){
-  var card = req.body
-  otdDb.inputBatting(card)
+  otdDb.createCard(req)
   .then(function(){
     res.redirect('/')
   })

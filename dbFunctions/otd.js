@@ -13,7 +13,7 @@ module.exports = {
   getPlayerData,
   getFixtureEntryData,
   addPlayer,
-  inputBatting
+  createCard
 }
 
 //LIST PLAYERS
@@ -111,6 +111,16 @@ function addPlayer(player) {
   return knex('squad').insert(player)
 }
 
-function inputBatting(card) {
-  console.log(card)
+// function inputBatting(card) {
+//   return knex('matchDB_Bat').insert(card)
+// }
+function createCard(req) {
+  console.log(req.body);
+  var card = []
+  var matchId = req.body.matchId
+  for (var i=0; i < req.body.batPlayerId.length; i++){
+      card.push({matchId: matchId, batPlayerId: req.body.batPlayerId[i], batRuns: req.body.batRuns[i]})
+  }
+  console.log({card})
+  return knex('matchDB_Bat').insert(card)
 }

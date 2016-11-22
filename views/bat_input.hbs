@@ -2,236 +2,218 @@
 <div class="">
 
   <form class="" action="/inputBatting" method="post">
-    
     <div class="">
-      <label for="Players">1.</label>
-      <select class="" name="Players">
-        {{#each player}}
-        <option value="{{playerId}}" {{selected this ../selectedState}}>{{firstName}} {{lastName}}</option>
-        {{/each}}
-      </select>
-      <input type="number" name="Runs">
-      <select class="" name="Dismissal">
-        <option>Bowled</option>
-        <option>LBW</option>
-        <option>Caught</option>
-        <option>Stumped</option>
-        <option>Run Out</option>
-        <option>Hit Wicket</option>
-        <option>Other</option>
-        <option>Retired</option>
-        <option>Not Out</option>
-      </select>
+      <label for="matchId">matchId</label>
+      <input type="number" name="matchId" value="">
     </div>
 
     <div class="">
-      <label for="Players">2.</label>
-      <select class="" name="Players">
+      <label for="player">1.</label>
+      <select class="" name="batPlayerId">
         {{#each player}}
         <option value="{{playerId}}" {{selected this ../selectedState}}>{{firstName}} {{lastName}}</option>
         {{/each}}
       </select>
-      <input type="number" name="Runs">
-      <select class="" name="Dismissal">
-        <option>Bowled</option>
-        <option>LBW</option>
-        <option>Caught</option>
-        <option>Stumped</option>
-        <option>Run Out</option>
-        <option>Hit Wicket</option>
-        <option>Other</option>
-        <option>Retired</option>
-        <option>Not Out</option>
-      </select>
+      <label for="batRuns">RUNS</label>
+      <input type="number" name="batRuns">
+      <label for="fours">4s</label>
+      <input type="number" name="fours">
+      <label for="sixes">6s</label>
+      <input type="number" name="sixes">
+      <label for="notOut">N/O</label>
+      <input type="checkbox" name="notOut" value="">
+      <label for="dnb">DNB</label>
+      <input type="checkbox" name="dnb" value="">
     </div>
 
     <div class="">
-      <label for="Players">3.</label>
-      <select class="" name="Players">
+      <label for="player">2.</label>
+      <select class="" name="batPlayerId">
         {{#each player}}
         <option value="{{playerId}}" {{selected this ../selectedState}}>{{firstName}} {{lastName}}</option>
         {{/each}}
       </select>
-      <input type="number" name="Runs">
-      <select class="" name="Dismissal">
-        <option>Bowled</option>
-        <option>LBW</option>
-        <option>Caught</option>
-        <option>Stumped</option>
-        <option>Run Out</option>
-        <option>Hit Wicket</option>
-        <option>Other</option>
-        <option>Retired</option>
-        <option>Not Out</option>
-      </select>
+      <label for="batRuns">RUNS</label>
+      <input type="number" name="batRuns">
+      <label for="fours">4s</label>
+      <input type="number" name="fours">
+      <label for="sixes">6s</label>
+      <input type="number" name="sixes">
+      <label for="notOut">N/O</label>
+      <input type="checkbox" name="notOut" value="">
+      <label for="dnb">DNB</label>
+      <input type="checkbox" name="dnb" value="">
     </div>
 
     <div class="">
-      <label for="Players">4.</label>
-      <select class="" name="Players">
+      <label for="player">3.</label>
+      <select class="" name="batPlayerId">
         {{#each player}}
         <option value="{{playerId}}" {{selected this ../selectedState}}>{{firstName}} {{lastName}}</option>
         {{/each}}
       </select>
-      <input type="number" name="Runs">
-      <select class="" name="Dismissal">
-        <option>Bowled</option>
-        <option>LBW</option>
-        <option>Caught</option>
-        <option>Stumped</option>
-        <option>Run Out</option>
-        <option>Hit Wicket</option>
-        <option>Other</option>
-        <option>Retired</option>
-        <option>Not Out</option>
-      </select>
+      <label for="batRuns">RUNS</label>
+      <input type="number" name="batRuns">
+      <label for="fours">4s</label>
+      <input type="number" name="fours">
+      <label for="sixes">6s</label>
+      <input type="number" name="sixes">
+      <label for="notOut">N/O</label>
+      <input type="checkbox" name="notOut" value="">
+      <label for="dnb">DNB</label>
+      <input type="checkbox" name="dnb" value="">
     </div>
 
     <div class="">
-      <label for="Players">5.</label>
-      <select class="" name="Players">
+      <label for="player">4.</label>
+      <select class="" name="batPlayerId">
         {{#each player}}
         <option value="{{playerId}}" {{selected this ../selectedState}}>{{firstName}} {{lastName}}</option>
         {{/each}}
-      </div>
-      <input type="number" name="Runs">
-      <select class="" name="Dismissal">
-        <option>Bowled</option>
-        <option>LBW</option>
-        <option>Caught</option>
-        <option>Stumped</option>
-        <option>Run Out</option>
-        <option>Hit Wicket</option>
-        <option>Other</option>
-        <option>Retired</option>
-        <option>Not Out</option>
-        </select
       </select>
+      <label for="batRuns">RUNS</label>
+      <input type="number" name="batRuns">
+      <label for="fours">4s</label>
+      <input type="number" name="fours">
+      <label for="sixes">6s</label>
+      <input type="number" name="sixes">
+      <label for="notOut">N/O</label>
+      <input type="checkbox" name="notOut" value="">
+      <label for="dnb">DNB</label>
+      <input type="checkbox" name="dnb" value="">
+    </div>
+
+    <div class="">
+      <label for="player">5.</label>
+      <select class="" name="batPlayerId">
+        {{#each player}}
+        <option value="{{playerId}}" {{selected this ../selectedState}}>{{firstName}} {{lastName}}</option>
+        {{/each}}
+      </select>
+      <label for="batRuns">RUNS</label>
+      <input type="number" name="batRuns">
+      <label for="fours">4s</label>
+      <input type="number" name="fours">
+      <label for="sixes">6s</label>
+      <input type="number" name="sixes">
+      <label for="notOut">N/O</label>
+      <input type="checkbox" name="notOut" value="">
+      <label for="dnb">DNB</label>
+      <input type="checkbox" name="dnb" value="">
+    </div>
 
       <div class="">
-        <label for="Players">6.</label>
-        <select class="" name="Players">
+        <label for="player">6.</label>
+        <select class="" name="batPlayerId">
           {{#each player}}
           <option value="{{playerId}}" {{selected this ../selectedState}}>{{firstName}} {{lastName}}</option>
           {{/each}}
         </select>
-        <input type="number" name="Runs">
-        <select class="" name="Dismissal">
-          <option>Bowled</option>
-          <option>LBW</option>
-          <option>Caught</option>
-          <option>Stumped</option>
-          <option>Run Out</option>
-          <option>Hit Wicket</option>
-          <option>Other</option>
-          <option>Retired</option>
-          <option>Not Out</option>
-        </select>
+        <label for="batRuns">RUNS</label>
+        <input type="number" name="batRuns">
+        <label for="fours">4s</label>
+        <input type="number" name="fours">
+        <label for="sixes">6s</label>
+        <input type="number" name="sixes">
+        <label for="notOut">N/O</label>
+        <input type="checkbox" name="notOut" value="">
+        <label for="dnb">DNB</label>
+        <input type="checkbox" name="dnb" value="">
       </div>
 
       <div class="">
-        <label for="Players">7.</label>
-        <select class="" name="Players">
+        <label for="player">7.</label>
+        <select class="" name="batPlayerId">
           {{#each player}}
           <option value="{{playerId}}" {{selected this ../selectedState}}>{{firstName}} {{lastName}}</option>
           {{/each}}
         </select>
-        <input type="number" name="Runs">
-        <select class="" name="Dismissal">
-          <option>Bowled</option>
-          <option>LBW</option>
-          <option>Caught</option>
-          <option>Stumped</option>
-          <option>Run Out</option>
-          <option>Hit Wicket</option>
-          <option>Other</option>
-          <option>Retired</option>
-          <option>Not Out</option>
-        </select>
+        <label for="batRuns">RUNS</label>
+        <input type="number" name="batRuns">
+        <label for="fours">4s</label>
+        <input type="number" name="fours">
+        <label for="sixes">6s</label>
+        <input type="number" name="sixes">
+        <label for="notOut">N/O</label>
+        <input type="checkbox" name="notOut" value="">
+        <label for="dnb">DNB</label>
+        <input type="checkbox" name="dnb" value="">
       </div>
 
       <div class="">
-        <label for="Players">8.</label>
-        <select class="" name="Players">
+        <label for="player">8.</label>
+        <select class="" name="batPlayerId">
           {{#each player}}
           <option value="{{playerId}}" {{selected this ../selectedState}}>{{firstName}} {{lastName}}</option>
           {{/each}}
         </select>
-        <input type="number" name="Runs">
-        <select class="" name="Dismissal">
-          <option>Bowled</option>
-          <option>LBW</option>
-          <option>Caught</option>
-          <option>Stumped</option>
-          <option>Run Out</option>
-          <option>Hit Wicket</option>
-          <option>Other</option>
-          <option>Retired</option>
-          <option>Not Out</option>
-        </select>
+        <label for="batRuns">RUNS</label>
+        <input type="number" name="batRuns">
+        <label for="fours">4s</label>
+        <input type="number" name="fours">
+        <label for="sixes">6s</label>
+        <input type="number" name="sixes">
+        <label for="notOut">N/O</label>
+        <input type="checkbox" name="notOut" value="">
+        <label for="dnb">DNB</label>
+        <input type="checkbox" name="dnb" value="">
       </div>
 
       <div class="">
-        <label for="Players">9.</label>
-        <select class="" name="Players">
+        <label for="player">9.</label>
+        <select class="" name="batPlayerId">
           {{#each player}}
           <option value="{{playerId}}" {{selected this ../selectedState}}>{{firstName}} {{lastName}}</option>
           {{/each}}
         </select>
-        <input type="number" name="Runs">
-        <select class="" name="Dismissal">
-          <option>Bowled</option>
-          <option>LBW</option>
-          <option>Caught</option>
-          <option>Stumped</option>
-          <option>Run Out</option>
-          <option>Hit Wicket</option>
-          <option>Other</option>
-          <option>Retired</option>
-          <option>Not Out</option>
-        </select>
+        <label for="batRuns">RUNS</label>
+        <input type="number" name="batRuns">
+        <label for="fours">4s</label>
+        <input type="number" name="fours">
+        <label for="sixes">6s</label>
+        <input type="number" name="sixes">
+        <label for="notOut">N/O</label>
+        <input type="checkbox" name="notOut" value="">
+        <label for="dnb">DNB</label>
+        <input type="checkbox" name="dnb" value="">
       </div>
 
       <div class="">
-        <label for="Players">10.</label>
-        <select class="" name="Players">
+        <label for="player">10.</label>
+        <select class="" name="batPlayerId">
           {{#each player}}
           <option value="{{playerId}}" {{selected this ../selectedState}}>{{firstName}} {{lastName}}</option>
           {{/each}}
         </select>
-        <input type="number" name="Runs">
-        <select class="" name="Dismissal">
-          <option>Bowled</option>
-          <option>LBW</option>
-          <option>Caught</option>
-          <option>Stumped</option>
-          <option>Run Out</option>
-          <option>Hit Wicket</option>
-          <option>Other</option>
-          <option>Retired</option>
-          <option>Not Out</option>
-        </select>
+        <label for="batRuns">RUNS</label>
+        <input type="number" name="batRuns">
+        <label for="fours">4s</label>
+        <input type="number" name="fours">
+        <label for="sixes">6s</label>
+        <input type="number" name="sixes">
+        <label for="notOut">N/O</label>
+        <input type="checkbox" name="notOut" value="">
+        <label for="dnb">DNB</label>
+        <input type="checkbox" name="dnb" value="">
       </div>
 
       <div class="">
-        <label for="Players">11.</label>
-        <select class="" name="Players">
+        <label for="player">11.</label>
+        <select class="" name="batPlayerId">
           {{#each player}}
           <option value="{{playerId}}" {{selected this ../selectedState}}>{{firstName}} {{lastName}}</option>
           {{/each}}
         </select>
-        <input type="number" name="Runs">
-        <select class="" name="Dismissal">
-          <option>Bowled</option>
-          <option>LBW</option>
-          <option>Caught</option>
-          <option>Stumped</option>
-          <option>Run Out</option>
-          <option>Hit Wicket</option>
-          <option>Other</option>
-          <option>Retired</option>
-          <option>Not Out</option>
-        </select>
+        <label for="batRuns">RUNS</label>
+        <input type="number" name="batRuns">
+        <label for="fours">4s</label>
+        <input type="number" name="fours">
+        <label for="sixes">6s</label>
+        <input type="number" name="sixes">
+        <label for="notOut">N/O</label>
+        <input type="checkbox" name="notOut" value="">
+        <label for="dnb">DNB</label>
+        <input type="checkbox" name="dnb" value="">
       </div>
 
       <input type="submit" value="submit">
