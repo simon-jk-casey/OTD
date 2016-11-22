@@ -13,7 +13,9 @@ module.exports = {
   getPlayerData,
   getFixtureEntryData,
   addPlayer,
-  createCard
+  createCard,
+  addBowlingData,
+  addFieldingData
 }
 
 //LIST PLAYERS
@@ -115,7 +117,6 @@ function addPlayer(player) {
 //   return knex('matchDB_Bat').insert(card)
 // }
 function createCard(req) {
-  console.log(req.body);
   var card = []
   var matchId = req.body.matchId
   for (var i=0; i < req.body.batPlayerId.length; i++){
@@ -123,4 +124,27 @@ function createCard(req) {
   }
   console.log({card})
   return knex('matchDB_Bat').insert(card)
+}
+
+function addBowlingData(req){
+  var bowlStats = []
+  var matchId = req.body.matchId
+  for(var i=0; i<req.body.bowlPlayerId.length; i++){
+    bowlStats.push({
+      matchId: matchId,
+      bowlPlayerId: req.body.bowlPlayerId[i],
+      overs: req.body.Overs[i],
+      maidens: req.body.Maidens[i],
+      bowlRuns: req.body.Runs[i],
+      wickets: req.body.Wickets[i],
+      wides: req.body.Wides[i],
+      noBalls: req.body.noBalls[i]
+    })
+  }
+  console.log({bowlStats})
+  return knex('matchDB_Bowl').insert(bowlStats)
+}
+
+function addFieldingData(res){
+  console.log(res);
 }

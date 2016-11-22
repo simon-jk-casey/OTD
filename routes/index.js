@@ -10,14 +10,13 @@ router.get('/', function(req, res, next) {
 
 /* GET squad list */
 router.get('/squad', function(req, res, next){
-  res.status(200)
   otdDb.getSquad()
     .then(function(squadData){
       console.log(squadData);
       res.render('squad', {squadData})
     })
     .catch(function(err){
-      res.status(500)
+      console.log(err);
     })
 })
 
@@ -29,33 +28,31 @@ router.get('/squad/:id', function(req, res, next){
       res.render('player_page', data[0])
     })
     .catch(function(err){
-      res.status(500)
+      console.log(err);
     })
 })
 
 /* GET fixture list */
 router.get('/fixtures', function(req, res, next){
-  res.status(200)
   otdDb.getFixtures()
     .then(function(data){
       console.log(data)
       res.render('fixture_list', {data})
     })
     .catch(function(err){
-      res.status(500)
+      console.log(err);
     })
 })
 
 /* GET fixture by ID (by clicking link in fixture list)*/
 router.get('/fixtures/:id', function(req, res, next){
-  res.status(200)
   otdDb.getFixture(req.params.id)
     .then(function(data){
       console.log(data)
       res.render('fixture', data[0])
     })
     .catch(function(err){
-      res.status(500)
+      console.log(err);
     })
 })
 
@@ -66,8 +63,12 @@ router.get('/addFixture', function (req, res, next){
     res.render('fixture_entry', {data})
   })
   .catch(function(err){
-    res.status(500)
+    console.log(err);
   })
+})
+
+router.post('/addFixture', (req, res, next) => {
+  console.log(req);
 })
 
 router.get('/addResult', function (req, res, next) {
@@ -78,7 +79,6 @@ router.get('/addResult', function (req, res, next) {
   })
   .catch(function(err){
     console.log(err);
-    res.status(500)
   })
 })
 
@@ -90,7 +90,6 @@ router.get('/inputBatting', function (req, res, next){
   })
   .catch(function(err){
     console.log(err)
-    res.status(500)
   })
 })
 
@@ -98,6 +97,9 @@ router.post('/inputBatting', function (req, res, next){
   otdDb.createCard(req)
   .then(function(){
     res.redirect('/')
+  })
+  .catch(function(err){
+    console.log(err);
   })
 })
 
@@ -111,6 +113,16 @@ router.get('/inputBowling', function(req, res, next){
   })
 })
 
+router.post('/inputBowling', (req, res, next) => {
+  otdDb.addBowlingData(req)
+  .then(function(){
+    res.redirect('/')
+  })
+  .catch(function(){
+    console.log(err);
+  })
+})
+
 router.get('/inputFielding', function(req, res, next){
   otdDb.getSquad()
   .then(function(player){
@@ -119,6 +131,10 @@ router.get('/inputFielding', function(req, res, next){
   .catch(function(err){
     console.log(err)
   })
+})
+
+router.post('/inputFielding', (req,res,next) => {
+  console.log(req);
 })
 
 router.get('/addPlayer', function (req, res, next){

@@ -3,7 +3,7 @@
 
   <form class="" action="/inputBatting" method="post">
     <div class="">
-      <label for="matchId">matchId</label>
+      <label for="matchId">match</label>
       <input type="number" name="matchId" value="">
     </div>
 
@@ -11,7 +11,7 @@
       <label for="player">1.</label>
       <select class="" name="batPlayerId">
         {{#each player}}
-        <option value="{{playerId}}" {{selected this ../selectedState}}>{{firstName}} {{lastName}}</option>
+        <option value="{{playerId}}" selected="disabled">{{firstName}} {{lastName}}</option>
         {{/each}}
       </select>
       <label for="batRuns">RUNS</label>
