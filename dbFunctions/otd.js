@@ -90,11 +90,11 @@ return knex ('squad')
     .sum('catches as catches')
     .sum('runOuts as runOuts')
     .sum('stumpings as stumpings')
-    .innerJoin('matchDB_Bat', 'squad.playerId', '=', 'matchDB_Bat.batPlayerId')
-    .innerJoin('matchDB_Bowl', function(){
+    .leftJoin('matchDB_Bat', 'squad.playerId', '=', 'matchDB_Bat.batPlayerId')
+    .leftJoin('matchDB_Bowl', function(){
       this.on('squad.playerId', '=', 'matchDB_Bowl.bowlPlayerId').andOn('matchDB_Bat.matchId', '=', 'matchDB_Bowl.matchId')
     })
-    .innerJoin('matchDB_Field', function(){
+    .leftJoin('matchDB_Field', function(){
       this.on('squad.playerId', '=', 'matchDB_Field.fieldPlayerId').andOn('matchDB_Bowl.matchId', '=', 'matchDB_Field.matchId')
     })
     .where('playerId', '=', `${id}`)
@@ -145,6 +145,16 @@ function addBowlingData(req){
   return knex('matchDB_Bowl').insert(bowlStats)
 }
 
-function addFieldingData(res){
-  console.log(res);
+function addFieldingData(req){
+  var fieldStats = []
+  var matchId = req.body.matchId
+  for (var i=0; i<req.body.fieldPlayerId.length; i++){
+    fieldStats.push({
+      matchId: matchId,
+      fieldPlayerId: req.body.fieldPlayerId[i],
+      catches: req.body.Catches[i],
+      stumpings: req.body.Stumpings[i]
+    })
+  }
+  return knex('matchDB_Field').insert(fieldStats)
 }

@@ -134,7 +134,13 @@ router.get('/inputFielding', function(req, res, next){
 })
 
 router.post('/inputFielding', (req,res,next) => {
-  console.log(req);
+  otdDb.addFieldingData(req)
+  .then(()=>{
+    res.redirect('/')
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
 })
 
 router.get('/addPlayer', function (req, res, next){
