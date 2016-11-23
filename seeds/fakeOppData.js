@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
         knex('opposition').insert({id: 3, name: 'Northern Boom'}),
         knex('opposition').insert({id: 4, name: 'Black Caps'}),
         knex('opposition').insert({id: 5, name: 'Brooklyn Jamaicans'}),
-        knex('opposition').insert({id: 6, name: 'Johnsonvill Run Chargers'})
+        knex('opposition').insert({id: 6, name: 'Johnsonville Run Chargers'})
       ]);
     });
 };
