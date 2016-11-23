@@ -24,7 +24,7 @@ router.get('/squad', function(req, res, next){
 router.get('/squad/:id', function(req, res, next){
   otdDb.getPlayerData(req.params.id)
     .then(function(data){
-      console.log("stats", data)
+      otdDb.calcAvg(data)
       res.render('player_page', data[0])
     })
     .catch(function(err){

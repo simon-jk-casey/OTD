@@ -15,7 +15,8 @@ module.exports = {
   addPlayer,
   createCard,
   addBowlingData,
-  addFieldingData
+  addFieldingData,
+  calcAvg
 }
 
 //LIST PLAYERS
@@ -31,12 +32,16 @@ function getPlayer(id) {
 
 function getFixtures() {
   return knex('fixtures')
+    .select()
+    .innerJoin('opposition', 'fixtures.oppositionId', '=', 'opposition.id')
+    .innerJoin('grounds', 'fixtures.groundId', '=', 'grounds.id')
 }
 
 function getFixture(id) {
   return knex('fixtures')
     .select()
-    .innerJoin('grounds', 'fixtures.ground', '=', 'grounds.groundName')
+    .innerJoin('opposition', 'fixtures.oppositionId', '=', 'opposition.id')
+    .innerJoin('grounds', 'fixtures.groundId', '=', 'grounds.id')
     .where('fixtures.id', '=', `${id}`)
 } //Do a join here to get ground image to go with fixture
 
@@ -80,6 +85,7 @@ return knex ('squad')
     .sum('sixes as sixes')
     .sum('notOut as notOut')
     .sum('dnb as dnb')
+    .sum('innings as innings')
     .sum('overs as overs')
     .sum('maidens as maidens')
     .sum('bowlRuns as runsConceded')
@@ -98,6 +104,18 @@ return knex ('squad')
       this.on('squad.playerId', '=', 'matchDB_Field.fieldPlayerId').andOn('matchDB_Bowl.matchId', '=', 'matchDB_Field.matchId')
     })
     .where('playerId', '=', `${id}`)
+}
+
+function calcAvg(data){
+  var runs = data[0].runsScored
+  var inns = data[0].innings
+  var avg = runs / inns
+  var runsConc = data[0].runsConceded
+  var wickets = data[0].wickets
+  var bowlAvg = runsConc / wickets
+  data[0].average = avg
+  data[0].bowlingAvg = bowlAvg
+  console.log(data);
 }
 
 
